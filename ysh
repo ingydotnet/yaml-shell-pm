@@ -4,6 +4,8 @@ use YAML::Shell;
 
 YAML::Shell->run(@ARGV);
 
+=encoding utf8
+
 =head1 NAME
 
 ysh - The YAML Test Shell

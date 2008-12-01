@@ -1,19 +1,18 @@
 package YAML::Shell;
-use 5.006001;
+use 5.005003;
 use strict;
-use warnings;
+# use warnings;
 
 use Term::ReadLine;
 sub Term::ReadLine::Perl::Tie::FIRSTKEY {undef}
 use Data::Dumper;
 $Data::Dumper::Indent = 1;
-use vars qw($prompt);
-$prompt = 'ysh > ';
-our $VERSION = '0.58';
+$YAML::Shell::prompt = 'ysh > ';
+$YAML::Shell::VERSION = '0.60';
 my $round_trip = 0;
 my $force = 0;
 my $log = 0;
-my $yaml_module = 'YAML';
+my $yaml_module = 'YAML::Any';
 my $yaml_version;
 $| = 1;
 my $sh;
@@ -79,8 +78,8 @@ END
         }
 
         sub my_readline {
-            print LOGFILE $prompt if $log;
-            my $input = $sh->readline($prompt);
+            print LOGFILE $YAML::Shell::prompt if $log;
+            my $input = $sh->readline($YAML::Shell::prompt);
             if (not defined $input) {
                 $input = ':exit';
                 Print("\n");
@@ -149,7 +148,7 @@ sub handle_file {
 sub handle_perl {
     my ($perl, $multi) = @_;
     my (@objects, $yaml, $yaml2);
-    local $prompt = 'perl> ';
+    local $YAML::Shell::prompt = 'perl> ';
     my $line = '';
     if ($multi) {
         while ($line !~ /^;$/) {
@@ -198,7 +197,7 @@ sub handle_yaml {
     my $yaml = shift;
     my $line = $yaml;
     my (@objects);
-    local $prompt = 'yaml> ';
+    local $YAML::Shell::prompt = 'yaml> ';
     $line = my_readline();
     print LOGFILE $line if $log;
     $line = '' unless defined $line;
@@ -326,9 +325,7 @@ Ingy döt Net <ingy@cpan.org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2006, 2008. Ingy döt Net.
-
-Copyright (c) 2001, 2002. Brian Ingerson.
+Copyright (c) 2008. Ingy döt Net.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
