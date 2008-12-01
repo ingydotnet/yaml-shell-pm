@@ -6,6 +6,7 @@ use strict;
 use Term::ReadLine;
 sub Term::ReadLine::Perl::Tie::FIRSTKEY {undef}
 use Data::Dumper;
+use Config;
 $Data::Dumper::Indent = 1;
 $YAML::Shell::prompt = 'ysh > ';
 $YAML::Shell::VERSION = '0.60';
@@ -19,6 +20,7 @@ my $sh;
 
 sub run {
     my $class = shift;
+    set_version($yaml_module);
     my @env_args = split /\s+/, ($ENV{YSH_OPT} || '');
     my @args = (@env_args, @_);
     my $stream = -t STDIN ? '' : join('', <STDIN>);
@@ -265,7 +267,7 @@ sub check_install {
 sub handle_version {
     print STDERR <<END;
 
-ysh: '$main::VERSION'
+ysh: '$YAML::Shell::VERSION'
 ${yaml_module}: '$yaml_version'
 
 END
@@ -279,9 +281,9 @@ sub handle_Version {
 
     print STDERR <<END;
 
-ysh: '$main::VERSION'
+ysh: '$YAML::Shell::VERSION'
 ${yaml_module}: '$yaml_version'
-perl: '$main::perl_version'
+perl: '$Config::Config{version}'
 Data::Dumper: '$Data::Dumper::VERSION'
 Term::ReadLine::Perl: '$TRP'
 Term::ReadLine::Gnu: '$TRG'
