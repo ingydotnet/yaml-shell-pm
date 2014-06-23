@@ -1,0 +1,32 @@
+=meta: 0.0.1
+
+name: YAML-Shell
+version: 0.61
+abstract: The YAML Test Shell for Perl5
+homepage: https://metacpan.org/release/YAML-Shell
+
+license: perl
+copyright: 2008-2014. Ingy döt Net.
+author:
+  name: Ingy döt Net
+  email: ingy@cpan.org
+  github: ingydotnet
+  twitter: ingydotnet
+  freenode: ingy
+  homepage: http://ingy.net
+
+requires:
+  perl: 5.8.1
+  YAML: 0
+  YAML::XS: 0
+  YAML::Syck: 0
+  YAML::Tiny: 0
+
+devel:
+  git: git@github.org/ingydotnet/yaml-shell-pm
+  irc: irc.perl.org#yaml
+  bug: https://github.com/ingydotnet/yaml-shell-pm/issues/
+
+=travis:
+  type: perl
+  irc: irc.perl.org#yaml

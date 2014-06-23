@@ -1,15 +1,14 @@
-package YAML::Shell;
-use 5.005003;
 use strict;
 # use warnings;
+package YAML::Shell;
+our $VERSION = '0.61';
 
 use Term::ReadLine;
 sub Term::ReadLine::Perl::Tie::FIRSTKEY {undef}
 use Data::Dumper;
 use Config;
 $Data::Dumper::Indent = 1;
-$YAML::Shell::prompt = 'ysh > ';
-$YAML::Shell::VERSION = '0.60';
+our $prompt = 'ysh > ';
 my $round_trip = 0;
 my $force = 0;
 my $log = 0;
@@ -42,7 +41,7 @@ sub run {
         $log = 1, next if $arg eq '-l';
         $log = 2, next if $arg eq '-L';
         $force = 1, next if $arg eq '-F';
-        warn(<<END), exit; 
+        warn(<<END), exit;
 Unknown YAML Shell argument: '$arg'.
 For help, try: perldoc ysh
 END
@@ -80,8 +79,8 @@ END
         }
 
         sub my_readline {
-            print LOGFILE $YAML::Shell::prompt if $log;
-            my $input = $sh->readline($YAML::Shell::prompt);
+            print LOGFILE $prompt if $log;
+            my $input = $sh->readline($prompt);
             if (not defined $input) {
                 $input = ':exit';
                 Print("\n");
@@ -102,7 +101,7 @@ END
         }
         exit 0;
     }
-     
+
     while ($_ = my_readline()) {
         print LOGFILE $_ if $log;
         next if /^\s*$/;
@@ -146,11 +145,11 @@ sub handle_file {
         Print Data::Dumper::Dumper(@objects);
     }
 }
-    
+
 sub handle_perl {
     my ($perl, $multi) = @_;
     my (@objects, $yaml, $yaml2);
-    local $YAML::Shell::prompt = 'perl> ';
+    local $prompt = 'perl> ';
     my $line = '';
     if ($multi) {
         while ($line !~ /^;$/) {
@@ -199,7 +198,7 @@ sub handle_yaml {
     my $yaml = shift;
     my $line = $yaml;
     my (@objects);
-    local $YAML::Shell::prompt = 'yaml> ';
+    local $prompt = 'yaml> ';
     $line = my_readline();
     print LOGFILE $line if $log;
     $line = '' unless defined $line;
@@ -267,7 +266,7 @@ sub check_install {
 sub handle_version {
     print STDERR <<END;
 
-ysh: '$YAML::Shell::VERSION'
+ysh: '$VERSION'
 ${yaml_module}: '$yaml_version'
 
 END
@@ -281,7 +280,7 @@ sub handle_Version {
 
     print STDERR <<END;
 
-ysh: '$YAML::Shell::VERSION'
+ysh: '$VERSION'
 ${yaml_module}: '$yaml_version'
 perl: '$Config::Config{version}'
 Data::Dumper: '$Data::Dumper::VERSION'
@@ -303,35 +302,3 @@ sub get_version {
 }
 
 1;
-
-=encoding utf8
-
-=head1 NAME
-
-YAML::Shell - The YAML Test Shell
-
-=head1 SYNOPSIS
-
- > ysh [options]
-
-=head1 DESCRIPTION
-
-This module supports the C<ysh> command. It is not to be used in any
-general way as a Perl module.
-
-See L<ysh> for detailed information on using the C<ysh> command.
-
-=head1 AUTHOR
-
-Ingy döt Net <ingy@cpan.org>
-
-=head1 COPYRIGHT
-
-Copyright (c) 2008. Ingy döt Net.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
-
-See L<http://www.perl.com/perl/misc/Artistic.html>
-
-=cut
