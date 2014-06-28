@@ -9,14 +9,14 @@ The YAML Test Shell
 
 = Description
 
-This module supports the `ysh` command. It is not to be used in any general way
-as a Perl module.
+This module supports the `ysh` command. It is not to be used in any general
+way as a Perl module.
 
 See [ysh] for detailed information on using the `ysh` command.
 
 = Author
 
-ingy döt Net <ingy@cpan.org>
+Ingy döt Net <ingy@cpan.org>
 
 = Copyright
 

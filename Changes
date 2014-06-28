@@ -1,4 +1,9 @@
 ---
+version: 0.62
+date:    Fri Jun 27 19:15:07 PDT 2014
+changes:
+- Doc fix and switch to swim.
+---
 version: 0.61
 date:    Mon Jun 23 14:43:56 PDT 2014
 changes:
