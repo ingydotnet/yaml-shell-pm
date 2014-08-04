@@ -16,25 +16,22 @@ ysh - The YAML Test Shell
 
 =head1 DESCRIPTION
 
-This program is designed to let you play with the Perl YAML modules in
-an interactive way. When you to type in Perl, you get back YAML. And
-vice versa.
+This program is designed to let you play with the Perl YAML modules in an
+interactive way. When you to type in Perl, you get back YAML. And vice versa.
 
-By default, every line you type is a one line Perl program, the return
-value of which will be displayed as YAML.
+By default, every line you type is a one line Perl program, the return value of
+which will be displayed as YAML.
 
-To enter multi-line Perl code start the first line with ';' and use as
-many lines as needed. Terminate with a line containing just ';'.
+To enter multi-line Perl code start the first line with ';' and use as many
+lines as needed. Terminate with a line containing just ';'.
 
-To enter YAML text, start with a valid YAML separator/header line
-which is typically '---'. Use '===' to indicate that there is no YAML
-header. Enter as many lines as needed. Terminate with a line
-containing just '...'.
+To enter YAML text, start with a valid YAML separator/header line which is
+typically '---'. Use '===' to indicate that there is no YAML header. Enter as
+many lines as needed. Terminate with a line containing just '...'.
 
-To read in and process an external YAML file, enter '< filename'. The
-ysh will also work as a standalone filter. It will read anything on
-STDIN as a YAML stream and write the Perl output to STDOUT. You can say
-(on most Unix systems):
+To read in and process an external YAML file, enter '< filename'. The ysh will
+also work as a standalone filter. It will read anything on STDIN as a YAML
+stream and write the Perl output to STDOUT. You can say (on most Unix systems):
 
     cat yaml.file | ysh | less
 
@@ -48,44 +45,44 @@ Set the YAML implementation module you wish.
 
 =item -l
 
-Keep a log of all ysh activity in './ysh.log'. If the log file already
-exists, new content will be concatenated to it.
+Keep a log of all ysh activity in './ysh.log'. If the log file already exists,
+new content will be concatenated to it.
 
 =item -L
 
-Keep a log of all ysh activity in './ysh.log'. If the log file already
-exists, it will be deleted first.
+Keep a log of all ysh activity in './ysh.log'. If the log file already exists,
+it will be deleted first.
 
 =item -r
 
-Test roundtripping. Every piece of Perl code entered will be Dumped,
-Loaded, and Dumped again. If the two stores do not match, an error
-message will be reported.
+Test roundtripping. Every piece of Perl code entered will be Dumped, Loaded,
+and Dumped again. If the two stores do not match, an error message will be
+reported.
 
 =item -R
 
-Same as above, except that a B<confirmation> message will be printed
-when the roundtrip succeeds.
+Same as above, except that a B<confirmation> message will be printed when the
+roundtrip succeeds.
 
 =item -i<number>
 
-Specify the number of characters to indent each level. This is the same
-as setting $YAML::Indent.
+Specify the number of characters to indent each level. This is the same as
+setting $YAML::Indent.
 
 =item -ub
 
-Shortcut for setting '$YAML::UseBlock = 1'. Force multiline scalars to
-use 'block' style.
+Shortcut for setting '$YAML::UseBlock = 1'. Force multiline scalars to use
+'block' style.
 
 =item -uf
 
-Shortcut for setting '$YAML::UseFold = 1'. Force multiline scalars to
-use 'folded' style.
+Shortcut for setting '$YAML::UseFold = 1'. Force multiline scalars to use
+'folded' style.
 
 =item -uc
 
-Shortcut for setting '$YAML::UseCode = 1'. Allows subroutine references
-to be processed.
+Shortcut for setting '$YAML::UseCode = 1'. Allows subroutine references to be
+processed.
 
 =item -nh
 
@@ -111,9 +108,9 @@ Print a help message.
 
 =head2 YSH_OPT
 
-If you don't want to enter your favorite options every time you enter
-ysh, you can put the options into the C<YSH_OPT> environment variable.
-Do something like this:
+If you don't want to enter your favorite options every time you enter ysh, you
+can put the options into the C<YSH_OPT> environment variable.  Do something
+like this:
 
     export YSH_OPT='-i3 -uc -L'
 
@@ -127,12 +124,10 @@ Ingy döt Net <ingy@cpan.org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2006, 2008. Ingy döt Net.
+Copyright 2001-2014. Ingy döt Net.
 
-Copyright (c) 2001, 2002. Brian Ingerson.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+This program is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
 
 See L<http://www.perl.com/perl/misc/Artistic.html>
 

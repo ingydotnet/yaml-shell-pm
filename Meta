@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: YAML-Shell
-version: 0.62
+version: 0.63
 abstract: The YAML Test Shell for Perl5
 homepage: https://metacpan.org/release/YAML-Shell
 
@@ -23,9 +23,9 @@ requires:
   YAML::Tiny: 0
 
 devel:
-  git: git@github.org/ingydotnet/yaml-shell-pm
+  git: https://github.com/ingydotnet/yaml-shell-pm
+  bug: https://github.com/ingydotnet/yaml-shell-pm/issues
   irc: irc.perl.org#yaml
-  bug: https://github.com/ingydotnet/yaml-shell-pm/issues/
 
 =travis:
   type: perl
