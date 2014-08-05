@@ -3,6 +3,8 @@ YAML::Shell
 
 The YAML Test Shell
 
+<badge travis coveralls ingydotnet/yaml-shell-pm>
+
 = Synopsis
 
   > ysh [options]

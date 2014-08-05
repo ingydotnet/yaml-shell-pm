@@ -10,6 +10,10 @@ See http://github.com/ingydotnet/swim-pm#readme
 
 YAML::Shell - The YAML Test Shell
 
+=for html
+<a href="https://travis-ci.org/ingydotnet/yaml-shell-pm"><img src="https://travis-ci.org/ingydotnet/yaml-shell-pm.png" alt="yaml-shell-pm"></a>
+<a href="https://coveralls.io/r/ingydotnet/yaml-shell-pm?branch=master"><img src="https://coveralls.io/repos/ingydotnet/yaml-shell-pm/badge.png" alt="yaml-shell-pm"></a>
+
 =head1 SYNOPSIS
 
     > ysh [options]
