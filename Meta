@@ -1,7 +1,7 @@
 =meta: 0.0.2
 
 name: YAML-Shell
-version: 0.67
+version: 0.68
 abstract: The YAML Test Shell for Perl5
 homepage: https://metacpan.org/release/YAML-Shell
 language: perl
