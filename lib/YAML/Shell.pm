@@ -1,7 +1,7 @@
 use strict;
 # use warnings;
 package YAML::Shell;
-our $VERSION = '0.66';
+our $VERSION = '0.67';
 
 use Term::ReadLine;
 sub Term::ReadLine::Perl::Tie::FIRSTKEY {undef}
