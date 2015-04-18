@@ -1,4 +1,10 @@
 ---
+version: 0.69
+date:    Sat Apr 18 13:57:42 CEST 2015
+changes:
+- Fix hashbang. eserte++
+- https://github.com/ingydotnet/yaml-shell-pm/issues/1
+---
 version: 0.68
 date:    Sat Aug 16 16:18:20 PDT 2014
 changes:
