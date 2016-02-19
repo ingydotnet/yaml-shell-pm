@@ -40,7 +40,7 @@ sub run {
         $log = 1, next if $arg eq '-l';
         $log = 2, next if $arg eq '-L';
         $force = 1, next if $arg eq '-F';
-        warn(<<END), exit;
+        warn(<<END), exit 1;
 Unknown YAML Shell argument: '$arg'.
 For help, try: perldoc ysh
 END
@@ -94,11 +94,12 @@ END
         eval { @objects = &{"${yaml_module}::Load"}($stream) };
         if ($@) {
             print STDERR $@;
+            exit 1;
         }
         else {
             print STDOUT Data::Dumper::Dumper(@objects);
+            exit 0;
         }
-        exit 0;
     }
 
     while ($_ = my_readline()) {
