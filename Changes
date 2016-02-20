@@ -1,4 +1,9 @@
 ---
+version: 0.70
+date:    Sat Feb 20 17:37:58 UTC 2016
+changes:
+- Apply PR/4 from @perlpunk++ (use correct exit codes for errors)
+---
 version: 0.69
 date:    Sat Apr 18 13:57:42 CEST 2015
 changes:
