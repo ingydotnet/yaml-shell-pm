@@ -65,7 +65,7 @@ END
 
     if (not length($stream)) {
         Print(<<END);
-Welcome to the YAML Test Shell. Type ':help' for more information.
+Welcome to the YAML Test Shell ($yaml_module). Type ':help' for more information.
 
 END
     }
@@ -233,7 +233,7 @@ sub handle_command {
 
 sub handle_help {
     Print <<END;
-                      Welcome to the YAML Test Shell.
+                      Welcome to the YAML Test Shell ($yaml_module).
 
    When you to type in Perl, you get back YAML. And vice versa.
 
