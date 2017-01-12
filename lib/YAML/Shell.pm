@@ -65,7 +65,7 @@ END
 
     if (not length($stream)) {
         Print(<<END);
-Welcome to the YAML Test Shell ($yaml_module). Type ':help' for more information.
+Welcome to the YAML Test Shell (@{[ $class->implementation ]}). Type ':help' for more information.
 
 END
     }
@@ -233,7 +233,7 @@ sub handle_command {
 
 sub handle_help {
     Print <<END;
-                      Welcome to the YAML Test Shell ($yaml_module).
+                      Welcome to the YAML Test Shell (@{[ __PACKAGE__->implementation ]}).
 
    When you to type in Perl, you get back YAML. And vice versa.
 
@@ -253,6 +253,14 @@ sub handle_help {
       :help - get this help screen
 
 END
+}
+
+sub implementation {
+    my $module = $yaml_module;
+    if ($yaml_module eq 'YAML::Any') {
+        $module .= " -> " . YAML::Any->implementation;
+    }
+    return $module;
 }
 
 sub check_install {
