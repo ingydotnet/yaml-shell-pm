@@ -65,7 +65,9 @@ END
 
     if (not length($stream)) {
         Print(<<END);
-Welcome to the YAML Test Shell (@{[ $class->implementation ]}). Type ':help' for more information.
+Welcome to the YAML Test Shell (@{[ $class->implementation ]})
+
+Type ':help' for more information.
 
 END
     }
@@ -233,20 +235,20 @@ sub handle_command {
 
 sub handle_help {
     Print <<END;
-                      Welcome to the YAML Test Shell (@{[ __PACKAGE__->implementation ]}).
+
+       Welcome to the YAML Test Shell (@{[ __PACKAGE__->implementation ]})
 
    When you to type in Perl, you get back YAML. And vice versa.
 
-   By default, every line you type is a one line Perl program, the
-   return value of which will be displayed as YAML.
+   By default, every line you type is a one line Perl program, the return value
+   of which will be displayed as YAML.
 
-   To enter multi-line Perl code start the first line with ';' and use
-   as many lines as needed. Terminate with a line containing just ';'.
+   To enter multi-line Perl code start the first line with ';' and use as many
+   lines as needed. Terminate with a line containing just ';'.
 
-   To enter YAML text, start with a valid YAML separator/header line
-   which is typically '---'. Use '===' to indicate that there is no YAML
-   header. Enter as many lines as needed. Terminate with a line
-   containing just '...'.
+   To enter YAML text, start with a valid YAML separator/header line which is
+   typically '---'. Use '===' to indicate that there is no YAML header. Enter
+   as many lines as needed. Terminate with a line containing just '...'.
 
    Shell Commands:             (Begin with ':')
       :exit or :q(uit) - leave the shell
