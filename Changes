@@ -1,4 +1,9 @@
 ---
+version: 0.71
+date:    Thu Jan 19 22:36:16 CET 2017
+changes:
+- Better messaging. Indicate backend. PR/4 @perlpunk++
+---
 version: 0.70
 date:    Sat Feb 20 17:37:58 UTC 2016
 changes:
