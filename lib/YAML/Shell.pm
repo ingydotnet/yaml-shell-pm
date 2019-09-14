@@ -7,6 +7,7 @@ sub Term::ReadLine::Perl::Tie::FIRSTKEY {undef}
 use Data::Dumper;
 use Config;
 $Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 our $prompt = 'ysh > ';
 my $round_trip = 0;
 my $force = 0;
